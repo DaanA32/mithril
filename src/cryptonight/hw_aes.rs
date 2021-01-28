@@ -7,38 +7,40 @@ use u64x2::u64x2;
 
 macro_rules! gen_key {
     ($round:expr, $ib:expr, $key:ident, $input0:ident, $input1:ident) => {
-        llvm_asm!(concat!("
-            aeskeygenassist xmm2, xmm1, ", $round,
-            "
-            pshufd xmm2, xmm2, ", $ib,
-            "
-            movdqa xmm4, xmm3
-            pslldq xmm4, 0x4
-            pxor xmm3, xmm4
+        // llvm_asm!(concat!("
+        //     aeskeygenassist xmm2, xmm1, ", $round,
+        //     "
+        //     pshufd xmm2, xmm2, ", $ib,
+        //     "
+        //     movdqa xmm4, xmm3
+        //     pslldq xmm4, 0x4
+        //     pxor xmm3, xmm4
 
-            pslldq xmm4, 0x4
-            pxor xmm3, xmm4
+        //     pslldq xmm4, 0x4
+        //     pxor xmm3, xmm4
 
-            pslldq xmm4, 0x4
-            pxor xmm3, xmm4
+        //     pslldq xmm4, 0x4
+        //     pxor xmm3, xmm4
 
-            pxor xmm3, xmm2"
-            )
-            : "={xmm3}"($key)
-            : "{xmm1}"($input1),"{xmm3}"($input0)
-            : "xmm4", "xmm2"
-            : "intel", "alignstack", "volatile"
-        );
+        //     pxor xmm3, xmm2"
+        //     )
+        //     : "={xmm3}"($key)
+        //     : "{xmm1}"($input1),"{xmm3}"($input0)
+        //     : "xmm4", "xmm2"
+        //     : "intel", "alignstack", "volatile"
+        // );
+        todo!()
     }
 }
 
 macro_rules! aes_enc {
     ($data:ident, $key:ident, $result:ident) => {
-        llvm_asm!("aesenc xmm1, xmm2"
-            : "={xmm1}"($result)
-            : "{xmm1}"($data),"{xmm2}"($key)
-            :
-            : "intel", "alignstack", "volatile"
+        // todo!()
+        asm!(
+            "aese.16b v0, v1",
+            in("v0") $data,
+            in("v1") $key,
+            lateout("v0") $result,
         );
     }
 }
@@ -113,9 +115,10 @@ pub fn gen_round_keys(input0: u64x2, input1: u64x2) -> [u64x2;10] {
 }
 
 pub fn aes_round(block: u64x2, key: u64x2) -> u64x2 {
-    let r;
+    let r ;
     unsafe {
         aes_enc!(block, key, r);
+        // aes_enc!(block, key, r);
     }
     r
 }

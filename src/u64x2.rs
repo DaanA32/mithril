@@ -2,8 +2,29 @@
 use std::ptr::copy_nonoverlapping;
 use std::mem;
 use std::fmt;
-use std::ops::{BitXor, Add};
+use std::ops::{BitXor, Add, Index};
+// #[cfg(all( any(target_arch = "x86", target_arch = "x86_64"), target_feature = "sse2" ))]
+// #[cfg(target_arch = "aarch64")]
 use super::cryptonight::sse;
+
+#[allow(non_camel_case_types)]
+#[repr(simd)]
+#[derive(Copy, Clone, Eq, PartialEq)]
+pub struct u32x4(pub u32, pub u32, pub u32, pub u32);
+
+impl Index<u16> for u32x4 {
+    type Output = u32;
+
+    fn index(&self, index: u16) -> &Self::Output {
+        match index {
+            0 => &self.0,
+            1 => &self.1,
+            2 => &self.2,
+            3 => &self.3,
+            _ => &0
+        }
+    }
+}
 
 #[allow(non_camel_case_types)]
 #[repr(simd)]

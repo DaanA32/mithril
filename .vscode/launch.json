@@ -1,0 +1,452 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug built executable 'mithril'",
+            "program": "target/debug/mithril",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'mithril'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "mithril",
+                    "kind": "lib"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'mithril'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=mithril",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "mithril",
+                    "kind": "bin"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'mithril'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=mithril",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "mithril",
+                    "kind": "bin"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'stratum'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=stratum",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "stratum",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'worker_pool'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=worker_pool",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "worker_pool",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'u64x2'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=u64x2",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "u64x2",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'sse'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=sse",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "sse",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'randomx_m128'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=randomx_m128",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "randomx_m128",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'randomx_memory'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=randomx_memory",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "randomx_memory",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'byte_string'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=byte_string",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "byte_string",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'aes'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=aes",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "aes",
+                    "kind": "test"
+                },
+                "env": {
+                    "RUSTFLAGS": "-C target-cpu=native"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'randomx_vm'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=randomx_vm",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "randomx_vm",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'hash'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=hash",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "hash",
+                    "kind": "test"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'randomx_hash'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=randomx_hash",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "randomx_hash",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'randomx_program'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=randomx_program",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "randomx_program",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'keccak'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=keccak",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "keccak",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'mithril_config'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=mithril_config",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "mithril_config",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'sw_aes'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=sw_aes",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "sw_aes",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug integration test 'timer'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--test=timer",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "timer",
+                    "kind": "test"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug benchmark 'hash'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bench=hash",
+                    "--package=mithril"
+                ],
+                "filter": {
+                    "name": "hash",
+                    "kind": "bench"
+                }
+            },
+            "env": {
+                "RUSTFLAGS": "-C target-cpu=native"
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

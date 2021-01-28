@@ -5,6 +5,7 @@ use super::hash::{fill_aes_1rx4_u64, gen_program_aes_4rx4};
 use super::m128::{m128d, m128i};
 use super::program::{Instr, Mode, Program, Store, MAX_FLOAT_REG, MAX_REG};
 use super::memory::{VmMemory};
+#[cfg(all(any(target_arch = "x86", target_arch = "x86_64"), target_feature = "sse2"))]
 use std::arch::x86_64::{_mm_getcsr, _mm_setcsr};
 use std::convert::TryInto;
 
@@ -204,17 +205,35 @@ impl Vm {
     }
 
     pub fn reset_rounding_mode(&mut self) {
-        unsafe {
-            _mm_setcsr(MXCSR_DEFAULT);
+        cfg_if::cfg_if! {
+            if #[cfg(all( any(target_arch = "x86", target_arch = "x86_64"), target_feature = "sse2" ))] { 
+                unsafe {
+                    _mm_setcsr(MXCSR_DEFAULT);
+                }
+            }else{
+                // todo!()
+            }
         }
     }
 
     pub fn set_rounding_mode(&mut self, mode: u32) {
-        unsafe { _mm_setcsr(MXCSR_DEFAULT | (mode << 13)) }
+        cfg_if::cfg_if! {
+            if #[cfg(all( any(target_arch = "x86", target_arch = "x86_64"), target_feature = "sse2" ))] { 
+                unsafe { _mm_setcsr(MXCSR_DEFAULT | (mode << 13)) }
+            }else{
+                // todo!()
+            }
+        }
     }
 
     pub fn get_rounding_mode(&self) -> u32 {
-        unsafe { (_mm_getcsr() >> 13) & 3 }
+        cfg_if::cfg_if! {
+            if #[cfg(all( any(target_arch = "x86", target_arch = "x86_64"), target_feature = "sse2" ))] { 
+                unsafe { (_mm_getcsr() >> 13) & 3 }
+            }else{
+                todo!()
+            }
+        }
     }
     //f...
 

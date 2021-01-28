@@ -15,6 +15,17 @@ fn test_m128i_from_u8() {
 
 #[test]
 #[allow(overflowing_literals)]
+fn test_m128i_to_m128d() {
+    let m32 = m128i::from_i32(0x31903876, 0xbb7a2914, 0xb370f616, 0xd6f7e4f3);
+    let m32_converted = m32.to_m128d();
+    let bytes : [u8; 16] = [0xf3, 0xe4, 0xf7, 0xd6, 0x16, 0xf6, 0x70, 0xb3, 0x14, 0x29, 0x7a, 0xbb, 0x76, 0x38, 0x90, 0x31];
+    let m8 = m128i::from_u8(&bytes);
+
+    assert_eq!(m32, m8);
+}
+
+#[test]
+#[allow(overflowing_literals)]
 fn test_m128i_eq() {
     let m128_0 = m128i::from_i32(0x31903876, 0xbb7a2914, 0xb370f616, 0xd6f7e4f3);
     let m128_0_2 = m128i::from_i32(0x31903876, 0xbb7a2914, 0xb370f616, 0xd6f7e4f3);

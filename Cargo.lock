@@ -354,6 +354,7 @@ dependencies = [
  "blake",
  "blake2b_simd",
  "byteorder",
+ "cfg-if 1.0.0",
  "config",
  "crossbeam-channel",
  "difference",
